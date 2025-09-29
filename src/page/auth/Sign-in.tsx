@@ -65,7 +65,7 @@ const SignIn = () => {
       onError: (error) => {
         toast({
           title: "Error",
-          description: error.message,
+          description: error?.message,
           variant: "destructive",
         });
       },
@@ -73,11 +73,11 @@ const SignIn = () => {
   };
 
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-6 md:p-10">
-      <div className="flex w-full max-w-sm flex-col gap-6">
+    <div className="flex flex-col justify-center items-center gap-6 bg-muted p-6 md:p-10 min-h-svh">
+      <div className="flex flex-col gap-6 w-full max-w-sm">
         <Link
           to="/"
-          className="flex items-center gap-2 self-center font-medium"
+          className="flex items-center self-center gap-2 font-medium"
         >
           <Logo />
           Team Sync.
@@ -93,17 +93,17 @@ const SignIn = () => {
             <CardContent>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
-                  <div className="grid gap-6">
+                  <div className="gap-6 grid">
                     <div className="flex flex-col gap-4">
                       <GoogleOauthButton label="Login" />
                     </div>
-                    <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
-                      <span className="relative z-10 bg-background px-2 text-muted-foreground">
+                    <div className="after:top-1/2 after:z-0 after:absolute relative after:inset-0 after:flex after:items-center after:border-t after:border-border text-sm text-center">
+                      <span className="z-10 relative bg-background px-2 text-muted-foreground">
                         Or continue with
                       </span>
                     </div>
-                    <div className="grid gap-3">
-                      <div className="grid gap-2">
+                    <div className="gap-3 grid">
+                      <div className="gap-2 grid">
                         <FormField
                           control={form.control}
                           name="email"
@@ -125,7 +125,7 @@ const SignIn = () => {
                           )}
                         />
                       </div>
-                      <div className="grid gap-2">
+                      <div className="gap-2 grid">
                         <FormField
                           control={form.control}
                           name="password"
@@ -137,7 +137,7 @@ const SignIn = () => {
                                 </FormLabel>
                                 <a
                                   href="#"
-                                  className="ml-auto text-sm underline-offset-4 hover:underline"
+                                  className="ml-auto text-sm hover:underline underline-offset-4"
                                 >
                                   Forgot your password?
                                 </a>
@@ -164,7 +164,7 @@ const SignIn = () => {
                         Login
                       </Button>
                     </div>
-                    <div className="text-center text-sm">
+                    <div className="text-sm text-center">
                       Don&apos;t have an account?{" "}
                       <Link
                         to="/sign-up"
@@ -178,7 +178,7 @@ const SignIn = () => {
               </Form>
             </CardContent>
           </Card>
-          <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 [&_a]:hover:text-primary  ">
+          <div className="text-muted-foreground [&_a]:hover:text-primary text-xs text-center [&_a]:underline [&_a]:underline-offset-4 text-balance">
             By clicking continue, you agree to our{" "}
             <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
           </div>
